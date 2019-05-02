@@ -1,0 +1,28 @@
+from tkinter import *
+import math
+ros=Tk()
+ros.title('RoDe')
+"""topf=Frame(ros)
+topf.pack()
+botf=Frame(ros)
+botf.pack(side=BOTTOM)"""
+def Fwd():
+    l1=ent1.get()
+    l1=ent2.get()
+    l1=ent3.get()
+    th1= math.radians(int(input("the first angle is:")))
+    th2= math.radians(int(input("the second angle is:")))
+    th3= (3*math.pi/2)+math.radians(int(input("the third angle is:")))
+    nd_efx= math.cos(th1)*((l2*math.cos(th2))+(l3*math.cos(th2+th3)))
+    nd_efy= math.sin(th1)*((l2*math.cos(th2))+(l3*math.cos(th2+th3)))
+    nd_efz= l1+((l2*math.sin(th2))+(l3*math.sin(th2+th3)))
+    Ikin.configure(nd_efx, nd_efy, nd_efz, sep=',')
+link1= Label(ros,text="link1").grid(row=0)
+ent1= Entry(ros).grid(row=0, column=1)
+link2= Label(ros,text="link2").grid(row=1)
+ent2= Entry(ros).grid(row=1, column=1)
+link3= Label(ros,text="link3").grid(row=2)
+ent3= Entry(ros).grid(row=2, column=1)
+Fkin=Button(ros,text="Fkin", fg="blue", command=Fwd).grid(row=3, column=0)
+Ikin=Button(ros,text="Ikin", fg="blue").grid(row=3, column=1)
+ros.mainloop()
